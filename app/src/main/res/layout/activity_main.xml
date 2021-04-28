@@ -8,6 +8,7 @@
     android:paddingRight="30dp"
     android:paddingLeft="30dp"
     android:background="@drawable/ac"
+    android:id="@+id/main"
     tools:context=".MainActivity">
 
 
@@ -16,7 +17,7 @@
             android:id="@+id/login_page_textLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login Page"
+            android:text="@string/Login_Page_Text"
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -96,38 +97,28 @@
             app:layout_constraintTop_toBottomOf="@+id/login_page_phoneNumber" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
+        <Spinner
 
             android:id="@+id/login_page_gender"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/input_bg"
             app:boxStrokeColor="@color/white"
             app:boxStrokeWidth="0dp"
+            android:drawableLeft="@drawable/ic_person"
+            android:textColor="@color/white"
             app:boxStrokeWidthFocused="0dp"
+            android:text="Gender"
+            style="@style/spinner_input_style"
+            android:entries="@array/gender"
             app:layout_constraintEnd_toEndOf="@+id/login_page_Email"
             app:layout_constraintStart_toStartOf="@+id/login_page_Email"
             app:layout_constraintTop_toBottomOf="@+id/login_page_Email">
 
-            <AutoCompleteTextView
-                android:id="@+id/login_page_selectgender"
-                android:layout_width="406dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:drawableLeft="@drawable/ic_person"
-                android:drawablePadding="10dp"
-                android:inputType="none"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
 
-                android:text="Gender"
-                android:textColor="@color/white" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </Spinner>
 
 
         <com.google.android.material.button.MaterialButton
@@ -155,7 +146,7 @@
             android:id="@+id/alreadyHaveAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already Have an Account?"
+            android:text="@string/Already_Have_an_Account_Text"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/btnRegister"
             app:layout_constraintStart_toStartOf="@+id/btnRegister"

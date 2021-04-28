@@ -32,7 +32,7 @@ object Validator {
             return false
         }
         else if (!validateEmail(email)) {
-            error = Error("email", "email can't be  empty")
+            error = Error("email", "invalid email")
             return false
         }
 

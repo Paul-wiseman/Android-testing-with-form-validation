@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.button.MaterialButton
@@ -19,15 +16,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val gender = resources.getStringArray(R.array.gender)
-        val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_item, gender )
-        findViewById<AutoCompleteTextView>(R.id.login_page_selectgender).setAdapter(arrayAdapter)
-
 
         var name = findViewById<EditText>(R.id.login_page_userName)
         var phoneNumber =findViewById<EditText>(R.id.login_page_phoneNumber)
         var email = findViewById<EditText>(R.id.login_page_Email)
-        var genderSelection = findViewById<AutoCompleteTextView>(R.id.login_page_selectgender)
+        var genderSelection = findViewById<Spinner>(R.id.login_page_gender)
         var btnRegister = findViewById<MaterialButton>(R.id.btnRegister)
 
 
@@ -48,7 +41,7 @@ class MainActivity : AppCompatActivity() {
            var username = name.text.toString()
             var userPhoneNumber = phoneNumber.text.toString()
             var userEmail = email.text.toString()
-            var userGender = genderSelection.text.toString()
+            var userGender = genderSelection.selectedItem.toString()
 
             val intent = Intent(this, ProfileActivity::class.java)
             intent.putExtra("userName", username)
@@ -56,13 +49,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("userEmail",userEmail)
             intent.putExtra("gender", userGender)
 
-
-//            if (validatePhoneNumber(userPhoneNumber) && validateEmail(userEmail)){
-//                startActivity(intent)
-//            }else{
-//                phoneNumber.error = "Invalid Input"
-//                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-//            }
 
             if (Validator.validateRegistrationInput( username, userPhoneNumber, userEmail, userGender)) {
 

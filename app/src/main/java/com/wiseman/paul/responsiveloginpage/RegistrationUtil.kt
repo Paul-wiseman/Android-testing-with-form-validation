@@ -5,8 +5,15 @@ object Validator {
 
     lateinit var error: Error
 
+    /**
+     * the userphone number is valid only if the it
+     * ... start with 0
+     * ... is 11 digit
+     *
+     */
     fun validatePhoneNumber(phoneNumber : String) : Boolean{
         val pattern = Regex("^[0]\\d{10}\$")
+
         return pattern.matches(phoneNumber)
     }
 
@@ -33,6 +40,9 @@ object Validator {
         }
         else if (!validateEmail(email)) {
             error = Error("email", "invalid email")
+            return false
+        }else if (gender.trim().isEmpty()) {
+            error = Error("username", "gender can't be empty")
             return false
         }
 

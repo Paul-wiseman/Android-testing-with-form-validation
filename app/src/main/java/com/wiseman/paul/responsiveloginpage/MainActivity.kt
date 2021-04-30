@@ -26,17 +26,17 @@ class MainActivity : AppCompatActivity() {
 
         phoneNumber.doOnTextChanged { text, _, _, _ ->
             phoneNumber.error = null
-//            phoneNumber.display
             Log.d("MainActivity", "onCreate: $text")
 
-            if(text!!.length > 11) phoneNumber.error = "Invalid PhoneNumber, numbers must be equal 11"
+            if(text!!.length > 11) phoneNumber.error = "Invalid PhoneNumber, numbers must be 11"
 
         }
 
 
-
-
-
+        /**
+         * on click of the button the second activity is lunched only if
+         * the user provide valid input
+         */
         btnRegister.setOnClickListener( View.OnClickListener {
            var username = name.text.toString()
             var userPhoneNumber = phoneNumber.text.toString()

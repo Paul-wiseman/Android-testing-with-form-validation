@@ -24,10 +24,10 @@ class MainActivityTest {
      */
 
     companion object{
-        var name = "Paul"
-        var phoneNumber = "09015525620"
-        var email = "paulndibe92@gmail.com"
-        var gender = "Male"
+        var name = "Smith"
+        var phoneNumber = "1818874984"
+        var email = "abcde@gmail.com"
+        var gender = "Female"
 
     }
 
